@@ -129,8 +129,10 @@ local function dragShip( event )
     if ( "began" == phase ) then
         display.currentStage:setFocus( ship )
         ship.touchOffsetX = event.x - ship.x
+        ship.touchOffsetY = event.y - ship.y
     elseif ( "moved" == phase ) then
         ship.x = event.x - ship.touchOffsetX
+        ship.y = event.y - ship.touchOffsetY
     elseif ( "ended" == phase or "cancelled" == phase ) then
         display.currentStage:setFocus( nil )
     end
